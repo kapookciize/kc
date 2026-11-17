@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>kappokciizee archive</title>
+<style>
+:root{--bg:#fffdf8;--card:#fff;--ink:#4a2a3a;--soft:#8c6577;--pink:#ff7eb3;--pink2:#ffe3ee;--yel:#ffd93d;--yel2:#fff7cf;--line:#ffd0e2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1822;--card:#3a2230;--ink:#ffeef5;--soft:#d6a9bd;--pink2:#5a2c44;--yel2:#4d4218;--line:#6b3550}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.top{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--card);border-bottom:3px solid var(--yel)}
+.logo{font-weight:bold;font-size:1.25rem;color:var(--pink)}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto;justify-content:flex-end}
+nav a{padding:6px 14px;border-radius:999px;font-size:.9rem;font-weight:bold;border:2px solid transparent}
+nav a:hover{border-color:var(--pink)}
+nav a[aria-current=page]{background:var(--pink);color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.hero{position:relative;overflow:hidden;text-align:center;padding:70px 20px 130px;background:linear-gradient(180deg,var(--yel2),var(--pink2))}
+.hero h1{margin:0;font-size:clamp(2.4rem,10vw,5rem);color:var(--pink);text-shadow:4px 4px 0 var(--yel)}
+.hero p{margin:12px auto 0;max-width:34rem;color:var(--soft);font-size:1.1rem}
+.hero .duo{font-size:2.6rem;margin-top:14px}
+.b{position:absolute;border-radius:50%;background:rgba(255,255,255,.65);border:2px solid #fff}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:110px;display:block}
+main{max-width:1100px;margin:0 auto;padding:0 18px 50px}
+h2{font-size:1.6rem;margin:36px 0 6px;color:var(--pink)}
+.lead{color:var(--soft);max-width:44rem;margin:0 0 18px}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.person{background:var(--card);border:3px solid var(--line);border-radius:26px;padding:22px;text-align:center}
+.person:nth-child(2){border-color:var(--yel)}
+.avatar{width:150px;height:150px;border-radius:50%;margin:0 auto 12px;border:5px solid var(--pink);background:var(--pink2);display:flex;align-items:center;justify-content:center;font-size:4.4rem;overflow:hidden;cursor:pointer;padding:0}
+.person:nth-child(2) .avatar{border-color:var(--yel);background:var(--yel2)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.person h3{margin:4px 0}
+.person small{color:var(--soft)}
+.albums{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.album{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:18px;text-align:center;font-weight:bold}
+.album:hover{border-color:var(--pink);background:var(--pink2)}
+.album span{display:block;font-weight:normal;color:var(--soft);font-size:.85rem}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:14px 0}
+button,.btn{font:inherit;font-weight:bold;border:2px solid var(--pink);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer}
+.add{background:var(--yel);border-color:var(--yel)}
+input[type=search],input[type=text],input[type=url],select{font:inherit;border:2px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--card);color:var(--ink);min-width:0}
+.drop{border:3px dashed var(--pink);background:var(--pink2);border-radius:20px;padding:20px;text-align:center;margin:12px 0 20px;cursor:pointer}
+.drop.on{background:var(--yel2);border-color:var(--yel)}
+.drop .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.drop .row input{flex:1 1 200px;max-width:420px;cursor:auto}.drop select{cursor:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.item{background:var(--card);border:3px solid var(--line);border-radius:22px;overflow:hidden}
+.thumb{position:relative;aspect-ratio:4/3;background:var(--pink2);border:0;padding:0;border-radius:0;display:block;width:100%}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;left:10px;top:10px;background:var(--yel);color:#4a2a3a;font-size:.75rem;font-weight:bold;padding:2px 10px;border-radius:999px}
+.meta{padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.meta input,.meta select{width:100%;font-size:.88rem;border-color:transparent;background:transparent;padding:4px 6px}
+.meta input:hover,.meta input:focus,.meta select:hover{border-color:var(--line)}
+.meta .t{font-weight:bold;font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:4px;padding:0 6px}
+.chip{background:var(--yel2);border:0;border-radius:999px;padding:1px 10px;font-size:.78rem}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--soft);padding:0 6px}
+.del{border:0;background:none;color:var(--pink);padding:2px 6px;font-size:.85rem}
+.empty{text-align:center;color:var(--soft);padding:40px 10px}
+#lb{position:fixed;inset:0;background:rgba(74,42,58,.88);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}
+#lb.open{display:flex}
+#lb .stage{max-width:min(1000px,100%);display:flex;flex-direction:column;gap:10px;align-items:center}
+#lb img,#lb video{max-width:100%;max-height:78vh;border-radius:14px;background:#000}
+#lb .cap{color:#fff;text-align:center}
+#lb .x{position:absolute;right:14px;top:calc(14px + env(safe-area-inset-top,0px));background:var(--yel);border-color:var(--yel);color:#4a2a3a}
+.hint{font-size:.85rem;color:var(--soft);margin-top:28px;text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="#home">🐚 kappokciizee</a><nav id="nav" aria-label="Archive sections"></nav></header>
+
+<div id="homeView">
+<section class="hero">
+<span class="b" style="width:30px;height:30px;left:8%;top:24%"></span><span class="b" style="width:18px;height:18px;left:14%;top:50%"></span><span class="b" style="width:40px;height:40px;right:10%;top:20%"></span><span class="b" style="width:22px;height:22px;right:18%;top:56%"></span>
+<h1>kappokciizee</h1>
+<p>A little ocean of videos, photos and memories from Kapook and Ciize.</p>
+<div class="duo">🐰 🫧 🐨</div>
+<svg class="wave" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C200 100 400 0 600 50 S1000 100 1200 40 V110 H0Z" fill="#ffd93d" opacity=".8"/><path d="M0 70 C200 20 450 110 700 65 S1050 30 1200 70 V110 H0Z" fill="#ffb3d1"/><path d="M0 90 C300 60 500 110 800 85 S1100 70 1200 90 V110 H0Z" fill="#fffdf8"/></svg>
+</section>
+<main>
+<h2>Who are Kapook and Ciize?</h2>
+<p class="lead">Kapook and Ciize are Thai actresses from GMMTV who became a fan-favourite pair as the side couple in the GL series Pluto (2024). They have since appeared together in the ensemble series Girl Rules, and fans have followed them through fanmeets, interviews and shows. This archive keeps those moments in one place.</p>
+<div class="who">
+<div class="person"><button class="avatar" id="av-kapook" type="button" aria-label="Change Kapook's photo">🐰</button><h3>Kapook 🐰</h3><small>Thai actress with GMMTV. Seen in Pluto and Girl Rules.</small><br><small>Tap the circle to add her photo.</small></div>
+<div class="person"><button class="avatar" id="av-ciize" type="button" aria-label="Change Ciize's photo">🐨</button><h3>Ciize 🐨</h3><small>Rutricha Phapakithi, Thai actress and singer, born 23 September 1999. Her fandom is called MyFanze.</small><br><small>Tap the circle to add her photo.</small></div>
+</div>
+<input id="pfile" type="file" accept="image/*" hidden>
+<h2>Explore the archive</h2>
+<div class="albums" id="albums"></div>
+</main>
+</div>
+
+<main id="arch" hidden>
+<h2 id="atitle"></h2>
+<div class="bar">
+<button class="add" id="toggle" type="button" aria-expanded="false">＋ Add to archive</button>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<input type="search" id="q" placeholder="Search titles, notes, tags" aria-label="Search">
+<select id="type" aria-label="Type"><option value="all">Videos and photos</option><option value="video">Videos only</option><option value="image">Photos only</option></select>
+<select id="sort" aria-label="Sort"><option value="new">Newest added</option><option value="old">Oldest added</option><option value="az">Title A–Z</option></select>
+</div></div>
+<section class="drop" id="drop" hidden aria-label="Add to the archive">
+<strong>Drop videos and photos here</strong>
+<input id="file" type="file" accept="image/*,video/*" multiple hidden>
+<div class="row"><select id="ncat" aria-label="Album or section"></select><input id="ntags" type="text" placeholder="Tags, separated by commas" aria-label="Tags"></div>
+<div class="row"><input id="url" type="url" placeholder="Or paste a direct link to a photo or video" aria-label="Link"><button id="addurl" type="button">Add link</button></div>
+</section>
+<div class="grid" id="grid"></div>
+<p class="empty" id="empty" hidden>Nothing here yet. Use “Add to archive” to put in your first video or photo.</p>
+<p class="hint">Files you add are saved in this browser on this device. Keep a copy of the originals.</p>
+</main>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Viewer"><button class="x" id="close" type="button">Close</button><div class="stage" id="stage"></div></div>
+
+<script>
+(function(){
+var items=[],filter='all',db=null,urls={};
+var CATS=[['fanmeet','Fanmeets'],['interview','Interviews'],['together','Shows together'],['kapook','Kapook 🐰 shows'],['ciize','Ciize 🐨 shows'],['other','Other']];
+var $=function(i){return document.getElementById(i)};
+function openDB(){return new Promise(function(res){try{var r=indexedDB.open('kappokciizee-archive',1);r.onupgradeneeded=function(){r.result.createObjectStore('items',{keyPath:'id'})};r.onsuccess=function(){db=r.result;res()};r.onerror=function(){res()}}catch(e){res()}})}
+function loadAll(){return new Promise(function(res){if(!db)return res();try{var q=db.transaction('items').objectStore('items').getAll();q.onsuccess=function(){items=q.result||[];res()};q.onerror=function(){res()}}catch(e){res()}})}
+function save(it){try{if(db)db.transaction('items','readwrite').objectStore('items').put(it)}catch(e){}}
+function remove(id){try{if(db)db.transaction('items','readwrite').objectStore('items').delete(id)}catch(e){}}
+function src(it){if(it.url)return it.url;if(!urls[it.id])urls[it.id]=URL.createObjectURL(it.blob);return urls[it.id]}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function parseTags(s){return s.split(',').map(function(t){return t.trim()}).filter(Boolean)}
+function catOpts(v){return CATS.map(function(c){return '<option value="'+c[0]+'"'+(c[0]===v?' selected':'')+'>'+c[1]+'</option>'}).join('')}
+function arch(){return items.filter(function(i){return i.kind!=='profile'})}
+var NAV=[['home','Home'],['all','All']].concat(CATS);
+function route(){
+ var h=location.hash.slice(1)||'home';if(!NAV.some(function(n){return n[0]===h}))h='home';
+ $('nav').innerHTML=NAV.map(function(n){return '<a href="#'+n[0]+'"'+(n[0]===h?' aria-current="page"':'')+'>'+n[1]+'</a>'}).join('');
+ var home=h==='home';$('homeView').hidden=!home;$('arch').hidden=home;
+ if(!home){filter=h;$('atitle').textContent=NAV.filter(function(n){return n[0]===h})[0][1];$('ncat').value=h==='all'?'fanmeet':h}
+ render();window.scrollTo(0,0);
+}
+function render(){
+ var list0=arch();
+ $('albums').innerHTML=CATS.filter(function(c){return c[0]!=='other'}).map(function(c){var n=list0.filter(function(i){return i.cat===c[0]}).length;return '<a class="album" href="#'+c[0]+'">'+c[1]+'<span>'+n+' item'+(n===1?'':'s')+'</span></a>'}).join('')+'<a class="album" href="#all">Everything<span>'+list0.length+' items</span></a>';
+ ['kapook','ciize'].forEach(function(p){var it=items.filter(function(i){return i.id==='profile-'+p})[0];$('av-'+p).innerHTML=it?'<img src="'+src(it)+'" alt="'+p+'">':(p==='kapook'?'🐰':'🐨')});
+ var q=$('q').value.toLowerCase(),s=$('sort').value,ty=$('type').value;
+ var list=list0.filter(function(i){return(filter==='all'||(i.cat||'other')===filter)&&(ty==='all'||i.kind===ty)&&((i.title+' '+i.note+' '+(i.tags||[]).join(' ')).toLowerCase().indexOf(q)>-1)});
+ list.sort(function(a,b){return s==='old'?a.added-b.added:s==='az'?a.title.localeCompare(b.title):b.added-a.added});
+ $('empty').hidden=list.length>0;
+ $('grid').innerHTML=list.map(function(i){
+  var m=i.kind==='video'?'<video src="'+src(i)+'#t=0.5" preload="metadata" muted></video>':'<img src="'+src(i)+'" alt="'+esc(i.title)+'" loading="lazy">';
+  return '<article class="item" data-id="'+i.id+'"><button class="thumb" type="button" aria-label="Open '+esc(i.title)+'">'+m+'<span class="badge">'+(i.kind==='video'?'Video':'Photo')+'</span></button><div class="meta"><input class="t" value="'+esc(i.title)+'" aria-label="Title"><input class="n" value="'+esc(i.note)+'" placeholder="Add a note or date" aria-label="Note"><select class="c" aria-label="Album or section">'+catOpts(i.cat||'other')+'</select><input class="g" value="'+esc((i.tags||[]).join(', '))+'" placeholder="Tags, separated by commas" aria-label="Tags"><div class="chips">'+(i.tags||[]).map(function(t){return '<button class="chip" type="button">'+esc(t)+'</button>'}).join('')+'</div><div class="foot"><span>Added '+new Date(i.added).toLocaleDateString()+'</span><button class="del" type="button">Remove</button></div></div></article>';
+ }).join('');
+}
+function addFiles(files){
+ Array.prototype.forEach.call(files,function(f,n){
+  var kind=f.type.indexOf('video')===0?'video':f.type.indexOf('image')===0?'image':null;if(!kind)return;
+  var it={id:Date.now()+'-'+n+'-'+Math.random().toString(36).slice(2,6),kind:kind,title:f.name.replace(/\.[^.]+$/,''),note:'',cat:$('ncat').value,tags:parseTags($('ntags').value),added:Date.now(),blob:f};
+  items.push(it);save(it)});render();
+}
+function addUrl(){
+ var u=$('url').value.trim();if(!u)return;
+ var it={id:Date.now()+'-u',kind:/\.(mp4|webm|mov|m4v|ogg)(\?|#|$)/i.test(u)?'video':'image',title:u.split('/').pop().split('?')[0]||'Untitled',note:'',cat:$('ncat').value,tags:parseTags($('ntags').value),added:Date.now(),url:u};
+ items.push(it);save(it);$('url').value='';render();
+}
+function openLB(id){
+ var it=items.filter(function(i){return i.id===id})[0];if(!it)return;
+ $('stage').innerHTML=(it.kind==='video'?'<video src="'+src(it)+'" controls autoplay playsinline></video>':'<img src="'+src(it)+'" alt="'+esc(it.title)+'">')+'<div class="cap"><strong>'+esc(it.title)+'</strong><br>'+esc(it.note)+'</div>';
+ $('lb').classList.add('open');$('close').focus();
+}
+function closeLB(){$('lb').classList.remove('open');$('stage').innerHTML=''}
+var who=null;
+['kapook','ciize'].forEach(function(p){$('av-'+p).onclick=function(){who=p;$('pfile').click()}});
+$('pfile').onchange=function(e){var f=e.target.files[0];e.target.value='';if(!f||!who)return;
+ items=items.filter(function(i){return i.id!=='profile-'+who});delete urls['profile-'+who];
+ var it={id:'profile-'+who,kind:'profile',title:who,note:'',added:Date.now(),blob:f};items.push(it);save(it);render()};
+$('file').onchange=function(e){addFiles(e.target.files);e.target.value=''};
+$('addurl').onclick=addUrl;$('url').onkeydown=function(e){if(e.key==='Enter')addUrl()};
+$('toggle').onclick=function(){var h=$('drop').hidden;$('drop').hidden=!h;$('toggle').setAttribute('aria-expanded',h)};
+$('drop').addEventListener('click',function(e){if(e.target===$('drop')||e.target.tagName==='STRONG')$('file').click()});
+$('ncat').innerHTML=catOpts('fanmeet');
+$('q').oninput=render;$('sort').onchange=render;$('type').onchange=render;
+$('grid').onclick=function(e){
+ var card=e.target.closest('.item');if(!card)return;var id=card.dataset.id;
+ if(e.target.closest('.chip')){$('q').value=e.target.textContent;render()}
+ else if(e.target.closest('.thumb'))openLB(id);
+ else if(e.target.closest('.del')){if(confirm('Remove this from the archive?')){items=items.filter(function(i){return i.id!==id});remove(id);render()}}
+};
+$('grid').onchange=function(e){
+ var card=e.target.closest('.item');if(!card)return;
+ var it=items.filter(function(i){return i.id===card.dataset.id})[0];if(!it)return;
+ var c=e.target.classList;
+ if(c.contains('t'))it.title=e.target.value||'Untitled';
+ if(c.contains('n'))it.note=e.target.value;
+ if(c.contains('c'))it.cat=e.target.value;
+ if(c.contains('g'))it.tags=parseTags(e.target.value);
+ save(it);if(c.contains('c')||c.contains('g'))render();
+};
+$('close').onclick=closeLB;$('lb').onclick=function(e){if(e.target===$('lb'))closeLB()};
+document.onkeydown=function(e){if(e.key==='Escape')closeLB()};
+var d=$('drop');
+['dragenter','dragover'].forEach(function(t){d.addEventListener(t,function(e){e.preventDefault();d.classList.add('on')})});
+['dragleave','drop'].forEach(function(t){d.addEventListener(t,function(e){e.preventDefault();d.classList.remove('on')})});
+d.addEventListener('drop',function(e){addFiles(e.dataTransfer.files)});
+window.addEventListener('hashchange',route);
+openDB().then(loadAll).then(route);
+})();
+</script>
+</body>
+</html>
