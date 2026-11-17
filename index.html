@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>kapookciizee archive</title>
 <style>
+.pol-wrap{position:relative;display:flex;align-items:center;gap:6px}
+.pol-track{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 20px 40px;flex:1;scrollbar-width:none}
+.pol-track::-webkit-scrollbar{display:none}
+.polaroid{flex:0 0 220px;scroll-snap-align:center;background:#fff;padding:12px 12px 14px;border-radius:4px;box-shadow:0 8px 20px rgba(255,126,179,.35);position:relative;margin:0;transition:transform .2s}
+.polaroid:nth-child(odd){transform:rotate(-3deg)}
+.polaroid:nth-child(even){transform:rotate(2.5deg)}
+.polaroid:hover{transform:rotate(0) scale(1.04);z-index:2}
+.polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(255,217,61,.75);transform:rotate(-2deg)}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#ffe3ee}
+.polaroid figcaption{text-align:center;font:italic 1rem Arial,sans-serif;color:#4a2a3a;padding-top:10px}
+.pol-nav{flex:0 0 auto;width:42px;height:42px;padding:0;border-radius:50%;background:#ffd93d;border:2px solid #ffd93d;color:#4a2a3a;font-size:1.4rem;cursor:pointer}
+@media (max-width:600px){.pol-nav{display:none}}
 :root{--bg:#fffdf8;--card:#fff;--ink:#4a2a3a;--soft:#8c6577;--pink:#ff7eb3;--pink2:#ffe3ee;--yel:#ffd93d;--yel2:#fff7cf;--line:#ffd0e2;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1822;--card:#3a2230;--ink:#ffeef5;--soft:#d6a9bd;--pink2:#5a2c44;--yel2:#4d4218;--line:#6b3550}}
@@ -89,6 +101,18 @@ input[type=search],input[type=text],input[type=url],select{font:inherit;border:2
 <div class="person"><button class="avatar" id="av-ciize" type="button" aria-label="Change Ciize's photo">🐨</button><h3>Ciize 🐨</h3><small>Rutricha Phapakithi, Thai actress and singer, born 23 September 1999. Her fandom is called MyFanze.</small><br><small>Tap the circle to add her photo.</small></div>
 </div>
 <input id="pfile" type="file" accept="image/*" hidden>
+ <h2>Polaroid wall</h2>
+<div class="pol-wrap">
+<button class="pol-nav" id="polPrev" type="button" aria-label="Previous photos">‹</button>
+<div class="pol-track" id="polTrack">
+
+<figure class="polaroid"><img src="images/photo1.jpg" alt="Kapook and Ciize"><figcaption>Fanmeet 2026</figcaption></figure>
+<figure class="polaroid"><img src="images/photo2.jpg" alt="Kapook and Ciize"><figcaption>Interview day</figcaption></figure>
+<figure class="polaroid"><img src="images/photo3.jpg" alt="Kapook and Ciize"><figcaption>Behind the scenes</figcaption></figure>
+
+</div>
+<button class="pol-nav" id="polNext" type="button" aria-label="Next photos">›</button>
+</div>
 <h2>Explore the archive</h2>
 <div class="albums" id="albums"></div>
 </main>
@@ -204,6 +228,10 @@ d.addEventListener('drop',function(e){addFiles(e.dataTransfer.files)});
 window.addEventListener('hashchange',route);
 openDB().then(loadAll).then(route);
 })();
+</script>
+ <script>
+document.getElementById('polPrev').onclick=function(){document.getElementById('polTrack').scrollBy({left:-300,behavior:'smooth'})};
+document.getElementById('polNext').onclick=function(){document.getElementById('polTrack').scrollBy({left:300,behavior:'smooth'})};
 </script>
 </body>
 </html>
