@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}
 .top{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--card);border-bottom:3px solid var(--yel)}
 .logo{font-weight:bold;font-size:1.25rem;color:var(--pink)}
 nav{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto;justify-content:flex-end}
-nav a{padding:6px 14px;border-radius:999px;font-size:.9rem;font-weight:bold;border:2px solid transparent}
+nav a{padding:6px 14px;border-radius:0px;font-size:.9rem;font-weight:bold;border:2px solid transparent}
 nav a:hover{border-color:var(--pink)}
 nav a[aria-current=page]{background:var(--pink);color:#fff}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
@@ -40,15 +40,15 @@ main{max-width:1100px;margin:0 auto;padding:0 18px 50px}
 h2{font-size:1.6rem;margin:36px 0 6px;color:var(--pink)}
 .lead{color:var(--soft);max-width:44rem;margin:0 0 18px}
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.person{background:var(--card);border:3px solid var(--line);border-radius:26px;padding:22px;text-align:center}
+.person{background:var(--card);border:3px solid var(--line);border-radius:0px;padding:22px;text-align:center}
 .person:nth-child(2){border-color:var(--yel)}
-.avatar{width:150px;height:150px;border-radius:50%;margin:0 auto 12px;border:5px solid var(--pink);background:var(--pink2);display:flex;align-items:center;justify-content:center;font-size:4.4rem;overflow:hidden;cursor:pointer;padding:0}
+.avatar{width:150px;height:150px;border-radius:0%;margin:0 auto 12px;border:5px solid var(--pink);background:var(--pink2);display:flex;align-items:center;justify-content:center;font-size:4.4rem;overflow:hidden;cursor:pointer;padding:0}
 .person:nth-child(2) .avatar{border-color:var(--yel);background:var(--yel2)}
 .avatar img{width:100%;height:100%;object-fit:cover}
 .person h3{margin:4px 0}
 .person small{color:var(--soft)}
 .albums{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
-.album{background:var(--card);border:3px solid var(--line);border-radius:22px;padding:18px;text-align:center;font-weight:bold}
+.album{background:var(--card);border:3px solid var(--line);border-radius:0px;padding:18px;text-align:center;font-weight:bold}
 .album:hover{border-color:var(--pink);background:var(--pink2)}
 .album span{display:block;font-weight:normal;color:var(--soft);font-size:.85rem}
 .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:14px 0}
@@ -80,6 +80,16 @@ input[type=search],input[type=text],input[type=url],select{font:inherit;border:2
 #lb .cap{color:#fff;text-align:center}
 #lb .x{position:absolute;right:14px;top:calc(14px + env(safe-area-inset-top,0px));background:var(--yel);border-color:var(--yel);color:#4a2a3a}
 .hint{font-size:.85rem;color:var(--soft);margin-top:28px;text-align:center}
+ .hero-img{
+  display:block;
+  margin:18px auto 0;
+  width:min(320px,80%);
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:20px;
+  border:5px solid #fff;
+  box-shadow:0 8px 20px rgba(255,126,179,.35);
+}
 </style>
 </head>
 <body>
@@ -88,7 +98,8 @@ input[type=search],input[type=text],input[type=url],select{font:inherit;border:2
 <div id="homeView">
 <section class="hero">
 <span class="b" style="width:30px;height:30px;left:8%;top:24%"></span><span class="b" style="width:18px;height:18px;left:14%;top:50%"></span><span class="b" style="width:40px;height:40px;right:10%;top:20%"></span><span class="b" style="width:22px;height:22px;right:18%;top:56%"></span>
-<i><h3>Kapookciizee</h3></i>
+<i><h1>Kapookciizee</h1></i>
+<img class="hero-img" src="003_3E688ED0-36AB-403A-B1DD-3F2DDA556A34.jpg" alt="Kapook and Ciize">
 <p>A little ocean of videos, photos and memories from Kapook and Ciize.</p>
 <div class="duo">🐰 🫧 🐨</div>
 <svg class="wave" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C200 100 400 0 600 50 S1000 100 1200 40 V110 H0Z" fill="#ffd93d" opacity=".8"/><path d="M0 70 C200 20 450 110 700 65 S1050 30 1200 70 V110 H0Z" fill="#ffb3d1"/><path d="M0 90 C300 60 500 110 800 85 S1100 70 1200 90 V110 H0Z" fill="#fffdf8"/></svg>
