@@ -238,7 +238,14 @@ var d=$('drop');
 ['dragleave','drop'].forEach(function(t){d.addEventListener(t,function(e){e.preventDefault();d.classList.remove('on')})});
 d.addEventListener('drop',function(e){addFiles(e.dataTransfer.files)});
 window.addEventListener('hashchange',route);
-openDB().then(loadAll).then(route);
+var BUILTIN=[
+ {id:'b-interview-1',kind:'video',title:'Interview 16 July 2026',note:'',cat:'interview',tags:['interview'],added:1,url:'2026-07-16%2007.57.18(1).mp4'}
+];
+ openDB().then(loadAll).then(function(){
+ BUILTIN.forEach(function(b){
+  if(!items.some(function(i){return i.id===b.id}))items.push(b);
+ });
+}).then(route);
 })();
 </script>
  <script>
